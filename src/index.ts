@@ -2,6 +2,20 @@ import dotenv from "dotenv";
 dotenv.config();
 import { REST, Routes, Client, Events } from "discord.js";
 import { CommandCollection } from "./commands";
+import { generateErrorMessage } from "zod-error";
+import { getEnvIssues } from "./env";
+
+const issues = getEnvIssues();
+
+if (issues) {
+  console.error("❌ Invalid environment variables, check the errors below!");
+  console.error(
+    generateErrorMessage(issues, {
+      delimiter: { error: "\\n" },
+    })
+  );
+  process.exit(-1);
+}
 
 
 const rest = new REST().setToken(process.env.TOKEN ?? "");
