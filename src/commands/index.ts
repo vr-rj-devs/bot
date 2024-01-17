@@ -1,8 +1,3 @@
-import ping from "./ping";
-import pang from "./pang";
+import { getAllCommands } from "@util/files.commands";
 
-
-export const CommandCollection = [
-  ping,
-  pang,
-]
+export const CommandCollection = getAllCommands(__dirname);

@@ -7,7 +7,7 @@ export default async () => {
   try {
     console.log(`Started refreshing ${CommandCollection.length} application (/) commands.`);
     const commandRoute = Routes.applicationGuildCommands(ENV.CLIENT_ID, ENV.GUILD_ID);
-    const body = CommandCollection.map(({ data }) => data.toJSON());
+    const body = CommandCollection.map(({ command }) => command.toJSON());
     const data = (await rest.put(commandRoute, { body })) as [];
 
     console.log(`Successfully reloaded ${data.length} application (/) commands.`);
