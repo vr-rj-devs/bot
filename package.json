@@ -23,7 +23,8 @@
     "@events": "src/events",
     "@env": "src/env",
     "@util": "src/util",
-    "@handlers": "src/handlers"
+    "@handlers": "src/handlers",
+    "@_types": "src/types"
   },
   "devDependencies": {
     "nodemon": "^3.0.2",
