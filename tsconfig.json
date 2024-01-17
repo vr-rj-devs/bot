@@ -107,7 +107,9 @@
       "@events/*": ["src/events/*"],
       "@env": ["src/env"],
       "@util": ["src/util"],
-      "@util/*": ["src/util/*"]
+      "@util/*": ["src/util/*"],
+      "@handlers": ["src/handlers"],
+      "@handlers/*": ["src/handlers/*"]
     }
   },
   "include": ["./src/**/*"]

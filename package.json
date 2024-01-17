@@ -22,7 +22,8 @@
     "@commands": "src/commands",
     "@events": "src/events",
     "@env": "src/env",
-    "@util": "src/util"
+    "@util": "src/util",
+    "@handlers": "src/handlers"
   },
   "devDependencies": {
     "nodemon": "^3.0.2",

@@ -1,8 +1,8 @@
 import "module-alias/register";
-
 import { REST, Routes, Client, Events } from "discord.js";
-import { CommandCollection } from "./commands";
+import { CommandCollection } from "@commands";
 import { ENV } from "@env";
+import eventHandler from "@handlers/eventHandler";
 
 const rest = new REST().setToken(process.env.TOKEN ?? "");
 
@@ -23,9 +23,7 @@ const rest = new REST().setToken(process.env.TOKEN ?? "");
 
 const client = new Client({ intents: [] });
 
-client.once(Events.ClientReady, c => {
-  console.log(`Ready! Logged in as ${c.user.tag}`);
-});
+eventHandler(client);
 
 client.on(Events.InteractionCreate, (interaction) => {
   if (interaction.isCommand()) {
