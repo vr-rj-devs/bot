@@ -98,7 +98,17 @@
 
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+    "baseUrl": ".",
+    "paths": {
+      "@commands": ["src/commands"],
+      "@commands/*": ["src/commands/*"],
+      "@events": ["src/events"],
+      "@events/*": ["src/events/*"],
+      "@env": ["src/env"],
+      "@util": ["src/util"],
+      "@util/*": ["src/util/*"]
+    }
   },
-  "include": ["./src/**/*", "./env.d.ts"]
+  "include": ["./src/**/*"]
 }

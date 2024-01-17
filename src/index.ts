@@ -1,3 +1,4 @@
+import "module-alias/register";
 import dotenv from "dotenv";
 dotenv.config();
 import { REST, Routes, Client, Events } from "discord.js";
