@@ -4,7 +4,7 @@
   "description": "Bot do Discord da comunidade VRDev.",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/index.ts",
+    "dev": "nodemon .",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/vr-rj-devs/Bot-VRDev#readme",
   "devDependencies": {
+    "nodemon": "^3.0.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "zod": "^3.22.4",
