@@ -7,17 +7,17 @@ export const getAllCommands = (base_path: string, includeSubCommands?: boolean) 
     const command = require(command_path).default;
     if (!command || (!command.commands && !command.execute)) return acc;
 
-    const category = path.relative(base_path, command_path).split("\\")[0];
+    const categories = path.relative(base_path, command_path).split("\\").slice(0, -1);
 
-    return !command.isSubCommand || includeSubCommands ? [...acc, { ...command, category }] : acc;
+    return !command.isSubCommand || includeSubCommands ? [...acc, { ...command, categories }] : acc;
   }, [] as Command[]);
 };
 
 export const getAllSubCommands = (base_path: string) => {
   return getAllFiles(base_path).reduce((acc, command_path) => {
     const command = require(command_path).default;
-    const category = path.relative(base_path, command_path).split("\\")[0];
+    const categories = path.relative(base_path, command_path).split("\\").slice(0, -1);
 
-    return command.isSubCommand ? [...acc, { ...command, category }] : acc;
+    return command.isSubCommand ? [...acc, { ...command, categories }] : acc;
   }, [] as SubCommand[]);
 };

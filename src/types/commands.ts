@@ -7,7 +7,7 @@ import {
 
 export interface Command {
   command: SlashCommandBuilder;
-  category: string | null;
+  categories: string[] | null;
   execute: (client: Client, interaction: CommandInteraction) => Promise<void>;
 }
 export interface SubCommand {
