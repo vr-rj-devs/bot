@@ -1,22 +1,8 @@
-import dotenv from "dotenv";
-dotenv.config();
+import "module-alias/register";
+
 import { REST, Routes, Client, Events } from "discord.js";
 import { CommandCollection } from "./commands";
-import { generateErrorMessage } from "zod-error";
-import { getEnvIssues } from "./env";
-
-const issues = getEnvIssues();
-
-if (issues) {
-  console.error("❌ Invalid environment variables, check the errors below!");
-  console.error(
-    generateErrorMessage(issues, {
-      delimiter: { error: "\\n" },
-    })
-  );
-  process.exit(-1);
-}
-
+import { ENV } from "@env";
 
 const rest = new REST().setToken(process.env.TOKEN ?? "");
 
@@ -25,7 +11,7 @@ const rest = new REST().setToken(process.env.TOKEN ?? "");
     console.log(`Started refreshing ${CommandCollection.length} application (/) commands.`);
 
     const data: [] = await rest.put(
-      Routes.applicationGuildCommands(process.env.CLIENT_ID ?? "", process.env.GUILD_ID ?? ""),
+      Routes.applicationGuildCommands(ENV.CLIENT_ID ?? "", ENV.GUILD_ID ?? ""),
       { body: CommandCollection.map(({ data }) => data.toJSON()) },
     ) as [];
 
@@ -47,4 +33,4 @@ client.on(Events.InteractionCreate, (interaction) => {
   }
 });
 
-client.login(process.env.TOKEN);
+client.login(ENV.TOKEN);
