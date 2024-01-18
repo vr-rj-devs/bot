@@ -1,9 +1,9 @@
 import "module-alias/register";
-import { Client } from "discord.js";
+import { Client, IntentsBitField } from "discord.js";
 import { ENV } from "@env";
 import eventHandler from "@handlers/eventHandler";
 
-const client = new Client({ intents: [] });
+const client = new Client({ intents: [IntentsBitField.Flags.Guilds] });
 
 eventHandler(client);
 
