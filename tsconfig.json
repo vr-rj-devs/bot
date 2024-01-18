@@ -111,8 +111,8 @@
       "@handlers": ["src/handlers"],
       "@handlers/*": ["src/handlers/*"],
       "@_types": ["src/types"],
-      "@_types/*": ["src/types/*"]
-    }
+      "@_types/*": ["src/types/*"],
+    },
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
 }

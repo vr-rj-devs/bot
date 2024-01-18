@@ -14,4 +14,4 @@ export default async () => {
   } catch (error) {
     console.error(error);
   }
-}
+};
